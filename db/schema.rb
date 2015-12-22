@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151222075643) do
+ActiveRecord::Schema.define(version: 20151220025107) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,10 +30,10 @@ ActiveRecord::Schema.define(version: 20151222075643) do
     t.text     "extended_html_description"
     t.integer  "category_id"
     t.string   "name"
+    t.boolean  "published"
+    t.integer  "user_id"
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
-    t.integer  "user_id"
-    t.boolean  "published"
   end
 
   add_index "events", ["category_id"], name: "index_events_on_category_id", using: :btree
@@ -87,6 +87,7 @@ ActiveRecord::Schema.define(version: 20151222075643) do
   add_index "venues", ["region_id"], name: "index_venues_on_region_id", using: :btree
 
   add_foreign_key "events", "categories"
+  add_foreign_key "events", "users"
   add_foreign_key "events", "venues"
   add_foreign_key "ticket_types", "events"
   add_foreign_key "tickets", "ticket_types"
