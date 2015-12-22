@@ -1,14 +1,14 @@
 # Homework 3 - *Name of App*
 
-**Name of your app** is a Ruby on Rails blog application that allows users to create and buy tickets to cool events. 
+**CoderTicket** is a Ruby on Rails blog application that allows users to create and buy tickets to cool events. 
 
-Submitted by: **Your Name Here**
+Submitted by: **Thuan Bui**
 
-Time spent: **X** hours
+Time spent: **20** hours
 
-URL: **Insert your Heroku URL here**
+URL: **https://afternoon-peak-8348.herokuapp.com/**
 
-SimpleCov Test Coverage: **Insert percentage or link to report here**
+SimpleCov Test Coverage: ****
 
 ## User Stories
 
