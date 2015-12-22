@@ -60,3 +60,7 @@ group :development do
   gem 'guard-rspec', require: false
 end
 
+group :production do
+  gem 'rails_12factor'
+end
+
