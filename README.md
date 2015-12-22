@@ -6,7 +6,7 @@ Submitted by: **Thuan Bui**
 
 Time spent: **20** hours
 
-URL: **https://fathomless-chamber-9500.herokuapp.com/**
+URL: **https://coderticketapp.herokuapp.com/**
 
 SimpleCov Test Coverage: ****
 
