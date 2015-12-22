@@ -1,0 +1,31 @@
+
+<h1>Ticket Types</h1>
+<div class="list-group">
+	<% event.ticket_types.each do |ticket_type| %>
+		<div class="list-group-item row">
+			<span class="col-md-10"><%= ticket_type.name %></span>
+			<%= link_to 'Delete', "/events/#{event.id}/ticket_type/#{ticket_type.id}/delete", remote: true, class: "col-md-2 btn btn-danger" %>
+		</div>
+	<% end %>
+</div>
+
+<fieldset>
+  <legend>Create new ticket type</legend>
+  <%= form_for(TicketType.new, url: "/events/#{event.id}/ticket_type/new", remote: true) do |f| %>
+		<div class="form-group">
+	    <%= f.text_field 'name', class: 'form-control', placeholder: 'Name', required: 'required' %>
+	  </div>
+
+	  <div class="form-group">
+	    <%= f.number_field 'price', class: 'form-control', placeholder: 'Price', required: 'required' %>
+	  </div>
+
+	  <div class="form-group">
+	    <%= f.number_field 'max_quantity', class: 'form-control', placeholder: 'Max Quantity', required: 'required' %>
+	  </div>
+
+	  <div class="form-group">
+	    <%= f.submit 'Create', class: 'btn btn-secondary' %>
+	  </div>
+	<% end %>
+</fieldset>

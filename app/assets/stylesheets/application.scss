@@ -8,12 +8,31 @@
 @import "nav";
 @import "events";
 @import "tickets";
+@import "users";
+@import "sessions";
 
 body {
   font-family: 'Open Sans';
 }
+
 .btn.btn-danger {
   background-color: rgb(216, 87, 66);
   border: 2px solid rgb(241, 112, 91);
 }
 
+.form-container {
+  width: 50%;
+  margin: auto;
+  margin-top: 20px;
+
+  text-align: center;
+  padding: 20px 30px;
+  background-color: rgba(0,0,0,0.5);
+  border-radius: 10px;
+
+  form {
+    width: 100%;
+    display: inline-block;
+    margin: auto;
+  }
+}

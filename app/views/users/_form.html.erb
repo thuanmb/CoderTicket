@@ -1,0 +1,21 @@
+<%= form_for(User.new, url: signup_path) do |f| %>
+  <div class="form-group">
+      <%= f.text_field 'email', class: 'form-control', placeholder: 'Your E-mail' %>
+  </div>
+
+  <div class="form-group">
+      <%= f.text_field 'name', class: 'form-control', placeholder: 'Name' %>
+  </div>
+
+  <div class="form-group">
+      <%= f.password_field 'password', class: 'form-control', placeholder: 'Password' %>
+  </div>
+
+  <div class="form-group">
+      <%= f.password_field 'password_confirmation', class: 'form-control', placeholder: 'Comfirm password' %>
+  </div>
+
+  <div class="form-group">
+      <%= f.submit 'Sign Up', class: 'btn btn-block btn-info' %>
+  </div>
+<% end %>

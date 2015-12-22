@@ -1,0 +1,6 @@
+<div class="btn-controls-container">
+	<div class="btn-group control-btn" role="group" aria-label="Basic example">
+		<%= link_to 'Publish', "/events/publish/#{event.id}", class: 'btn btn-primary' if can_publish(event) %>
+		<%= link_to 'Edit', "/events/#{event.id}/edit", class: 'btn btn-warning' if can_edit(event) %>
+	</div>
+</div>

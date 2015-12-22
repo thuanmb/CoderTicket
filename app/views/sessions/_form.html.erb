@@ -1,0 +1,14 @@
+<%= form_for(User.new, url: login_path) do |f| %>
+	<div class="form-group">
+		<%= f.text_field 'email', class: 'form-control', placeholder: 'Your E-Mail' %>
+	</div>
+
+	<div class="form-group">
+		<%= f.password_field 'password', class: 'form-control', placeholder: 'Password' %>
+	</div>
+
+	<div class="form-group">
+		<%= f.submit 'Login', class: 'btn btn-md btn-primary' %>
+		<%= link_to 'Sign Up', signup_path, {:class => 'btn btn-link'}%>
+	</div>
+<% end %>

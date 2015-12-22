@@ -1,47 +1,30 @@
-<div class="container-fluid tickets-buy">
-  <div class="row tickets-header">
-    <div class="col-xs-12 col-md-11 col-md-offset-1">
-      <h3> <%= @event.name %> </h3>
-      <div class="pull-left">
-        <%= fa_icon 'map-marker' %>
-      </div>
-      <div class="venue-details">
-       <%= @event.venue.name %>
-       <br/>
-       <%= @event.venue.full_address %>
-      </div>
+<% content_for :event_content do %>
+  <%= form_for(@event, url: "/events/#{@event.id}/tickets", method: :post) do |f| %>
+		<ul class="list-group">
+	    <% @event.ticket_types.each do |type| %>
+	      <li class="list-group-item form-group row"> 
+	      	<span class="name col-md-5 col-xs-12"><%= type.name %></span>
+	      	<h4 class="price col-md-3 col-xs-12"><%= format_price(type.price) %></h4>
+	      	<%= number_field_tag 'event[ticket_types][]', nil, class: "col-md-2 col-xs-12", min: 0, max: type.max_quantity %>
+	      	<div class="col-md-1 col-xs-12 btn-container"><button class="btn  btn-success-outline btn-sm btn-increase-count">+</button></div>
+	      	<div class="col-md-1 col-xs-12 btn-container"><button class="btn  btn-danger-outline btn-sm btn-decrease-count">-</button></div>
+	      </li>
+	    <% end %> 
+	  </ul>
+	  <%= f.submit 'Book', class: 'btn btn-primary btn-lg btn-book' %>
+  <% end %>
+<% end %>
 
-      <div class="pull-left">
-        <%= fa_icon 'clock-o' %>
-      </div>
-      <div class="time-details"> 
-        <%= @event.starts_at.strftime('%A, %d %b %Y %l:%M %p') %> 
-      </div>
+<%= render 'shared/event_details' %>
 
+<%= javascript_tag do %>
+	$('.btn-increase-count').click(function (e) {
+		e.preventDefault();
+		$(e.currentTarget).parent().parent().find("input").get(0).stepUp(1);
+	});
 
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-md-11 col-md-offset-1">  
-      <table class="table">
-        <th> Ticket Type </th>
-        <th> Unit Price </th>
-        <th> Quantity </th>
-      
-        <% @event.ticket_types.each do |type| %>
-        <tr>
-          <td> <%= type.name %> </td>
-          <td> <%= number_to_currency(type.price, unit: 'VND ', precision: 0) %> </td>
-          <td> <%= select_tag('quantity', options_for_select(0..10)) %></td> 
-        </tr>
-        <% end %> 
-      </table>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-md-2 col-md-offset-5">
-      <button class="btn btn-success btn-lg btn-block"> Buy </button>
-    </div>
-  <div>
-</div>  
-
+	$('.btn-decrease-count').click(function (e) {
+		e.preventDefault();
+		$(e.currentTarget).parent().parent().find("input").get(0).stepDown(1);
+	});
+<% end %>

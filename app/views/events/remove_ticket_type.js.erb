@@ -1,0 +1,3 @@
+$("#edit-event-ticket-types-group").html($("<%= escape_javascript render(:partial => 'ticket_types', locals: {:event => @event}) %>"));
+
+$(".events.edit").scrollTo("#edit-event-ticket-types-group h3");

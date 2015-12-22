@@ -1,0 +1,32 @@
+<% content_for :event_content do %>
+  <h2>Thank you!</h2>
+  <table class="table">
+		<thead>
+			<tr>
+				<td>Ticket Name</td>
+				<td class="centered">Price</td>
+				<td class="centered">Quantity</td>
+				<td class="centered"></td>
+			</tr>
+		</thead>
+		<tbody>
+			<% @success_tickets.each do |ticket| %>
+		    <tr> 
+		    	<td><%= ticket.ticket_type.name %></td>
+		    	<td class="centered"><%= format_price(ticket.ticket_type.price) %></td>
+		    	<td class="centered"><%= ticket.quantity %></td>
+		    	<td class="centered"><%= format_price(ticket.ticket_type.price * ticket.quantity) %></td>
+		    </tr>
+		  <% end %> 
+
+		  <tr> 
+		    	<td class="centered"></td>
+		    	<td class="centered"></td>
+		    	<td class="centered total">Total</td>
+		    	<td class="centered total"><%= format_price(@total) %></td>
+		    </tr>
+		</tbody>
+	</table>
+<% end %>
+
+<%= render 'shared/event_details' %>

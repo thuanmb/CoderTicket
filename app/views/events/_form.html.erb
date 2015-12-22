@@ -1,0 +1,74 @@
+<%= form_for(@event) do |f| %>
+	<div class="form-group">
+    <%= f.text_field 'name', class: 'form-control', placeholder: 'Name', required: 'required' %>
+  </div>
+
+  <div class="form-group">
+  	 <%= f.label :starts_at %>:
+    <%= datetime_local_field :event, :starts_at, {class: 'form-control', placeholder: 'Start date', required: 'required'} %>
+  </div>
+
+  <div class="form-group">
+  	<%= f.label :ends_at %>:
+    <%= datetime_local_field :event, :ends_at, {class: 'form-control', placeholder: 'End date'} %>
+  </div>
+
+  <div class="form-group">
+    <%= f.text_field 'hero_image_url', class: 'form-control', placeholder: 'Poster' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.text_area 'extended_html_description', class: 'form-control', placeholder: 'Description', required: 'required' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.collection_select(:category, Category.all, :id, :name, {:prompt => 'Please select the category of this event', required: 'required'}) %>
+  </div>
+
+  <div class="form-group">
+    <fieldset>
+	    <legend>Venue Information</legend>
+	    <%= f.fields_for :venue do |venue_form| %>
+				<div class="form-group">
+			    <%= venue_form.text_field 'name', class: 'form-control', placeholder: 'Name', required: 'required' %>
+			  </div>
+
+			  <div class="form-group">
+			    <%= venue_form.text_area 'full_address', class: 'form-control', placeholder: 'Full address', required: 'required' %>
+			  </div>
+
+			  <div class="form-group">
+			    <%= venue_form.collection_select(:region, Region.all, :id, :name, {:prompt => 'Please select the region of venue', required: 'required'}) %>
+			  </div>
+			<% end %>
+	  </fieldset>
+  </div>
+
+  <div class="form-group">
+    <fieldset>
+	    <legend>Ticket Type Information</legend>
+	    <%= f.fields_for :ticket_type do |ticket_type_form| %>
+				<div class="form-group">
+			    <%= ticket_type_form.text_field 'name', class: 'form-control', placeholder: 'Name', required: 'required' %>
+			  </div>
+
+			  <div class="form-group">
+			    <%= ticket_type_form.number_field 'price', class: 'form-control', placeholder: 'Price', required: 'required' %>
+			  </div>
+
+			  <div class="form-group">
+			    <%= ticket_type_form.number_field 'max_quantity', class: 'form-control', placeholder: 'Max Quantity', required: 'required' %>
+			  </div>
+			<% end %>
+	  </fieldset>
+  </div>
+
+  <div class="form-group">
+  	<%= check_box("event", "published") %>
+  	<%= f.label "Publish this event" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.submit 'Create', class: 'btn btn-block btn-info' %>
+  </div>
+<% end %>
