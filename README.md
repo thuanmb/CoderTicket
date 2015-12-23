@@ -55,11 +55,13 @@ The following **required** functionality is complete:
 
 ## Notes
 
-Describe any challenges encountered while building the app.
+* Implement testing for each code I wrote
+
+![Video Walkthrough](/demo/coderticket_demo.gif)
 
 ## License
 
-    Copyright [yyyy] [name of copyright owner]
+    Copyright [2015] [Thuan Bui]
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
