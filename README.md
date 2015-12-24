@@ -1,4 +1,4 @@
-# Homework 3 - *Name of App*
+# Homework 3 - *Coder Ticket*
 
 **CoderTicket** is a Ruby on Rails blog application that allows users to create and buy tickets to cool events. 
 
@@ -8,7 +8,7 @@ Time spent: **20** hours
 
 URL: **https://coderticketapp.herokuapp.com/**
 
-SimpleCov Test Coverage: ****
+SimpleCov Test Coverage: Please help to check *coverage/index.html*
 
 ## User Stories
 
